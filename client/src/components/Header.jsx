@@ -25,9 +25,7 @@ const Logo=style.div`
   flex-wrap:wrap;
   font-weight:bold;
   font-size:1.4rem;
-  @media (min-width: 640px) {
-    font-size: 1.775rem; 
-  }
+  
   
 `
 const Form=style.form`

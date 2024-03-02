@@ -20,11 +20,12 @@ function OAuth() {
       const navigate=useNavigate()
     const handleGoogleClick =async()=>{
         try{
+            console.log("google")
             const provider =new GoogleAuthProvider();
             const auth=getAuth(app)
-            
+            console.log("auth",auth)
             const result =await signInWithPopup(auth,provider)
-            console.log(result) 
+            console.log("result",result) 
                         axios.post('/api/auth/google',{username:result.user.displayName,email:result.user.email,photo:result.user.photoURL}) 
                      .then(response=> {
                       console.log('response :',response.data),
@@ -49,6 +50,7 @@ function OAuth() {
            console.log('could not sign in with google')
         }
     }
+
 
   return (
     <OAuthButn type='button' onClick={handleGoogleClick}>Continue with google</OAuthButn>
