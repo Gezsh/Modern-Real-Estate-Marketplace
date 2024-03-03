@@ -5,6 +5,7 @@ import { Navigation } from 'swiper/modules';
 import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
 import ListingItem from '../components/ListingItem';
+import axios from 'axios';
 
 
 const Home = () => {
@@ -13,22 +14,24 @@ const Home = () => {
   const [rentListings, setRentListings] = useState([]);
   SwiperCore.use([Navigation]);
   console.log(offerListings);
+  ///api/listing/getListings?offer=true&limit=4'
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch('/api/listing/getListings?offer=true&limit=4');
-        const data = await res.json();
-        setOfferListings(data);
+        const res = await axios.get('/api/listing/getListings?offer=true&limit=4');
+      
+        setOfferListings(res.data);
         fetchRentListings(); // Trigger fetching of rent listings after setting offer listings
+       
       } catch (error) {
         console.log(error);
       }
     };
     const fetchRentListings = async () => {
       try {
-        const res = await fetch('/api/listing/getListings?type=rent&limit=4');
-        const data = await res.json();
-        setRentListings(data);
+        const res = await axios.get('/api/listing/getListings?type=rent&limit=4');
+       
+        setRentListings(res.data);
         fetchSaleListings();
       } catch (error) {
         console.log(error);
@@ -37,9 +40,9 @@ const Home = () => {
 
     const fetchSaleListings = async () => {
       try {
-        const res = await fetch('/api/listing/getListings?type=sale&limit=4');
-        const data = await res.json();
-        setSaleListings(data);
+        const res = await axios.get('/api/listing/getListings?type=sale&limit=4');
+      
+        setSaleListings(res.data);
       } catch (error) {
         console.log(error);
       }
