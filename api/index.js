@@ -11,6 +11,7 @@ const app=express();
 
 // const __dirname=path.resolve();
 const corsOptions = {
+    credentials:true,
     origin: 'https://realestatesgezsh.netlify.app',
     credentials: true, // Enable credentials (cookies)
   };
