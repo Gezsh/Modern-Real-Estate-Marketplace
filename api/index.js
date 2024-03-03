@@ -10,16 +10,27 @@ require('dotenv').config()
 const app=express();
 
 // const __dirname=path.resolve();
-const corsOptions = {
-    credentials:true,
-    origin: 'https://realestatesgezsh.netlify.app',
-    credentials: true, // Enable credentials (cookies)
-  };
+// const corsOptions = {
+//     credentials:true,
+//     origin: 'https://realestatesgezsh.netlify.app',
+//     credentials: true, // Enable credentials (cookies)
+//   };
 
 const cors=require('cors')
 app.use(express.json())
-app.use(cors(corsOptions));
+
+mongoose.connect(process.env.MONGO_URL).then(()=>console.log("connected to database")).catch((err)=>console.log(err));
+
+
+app.use(cors());
 app.use(cookieParser())
+
+app.listen (3000,()=>{
+   console.log("server is runnig on port 3000!");
+});
+
+
+
 app.use("/api/user",userRouter)
 app.use("/api/auth",authRouter)
 app.use("/api/listing",listingRouter)
@@ -30,11 +41,8 @@ app.use("/api/listing",listingRouter)
 //     res.sendFile(path.join(__dirname, 'client','dist','index.html'))
 // })
 
-mongoose.connect(process.env.MONGO_URL).then(()=>console.log("connected to database")).catch((err)=>console.log(err));
 
-app.listen (3000,()=>{
-   console.log("server is runnig on port 3000!");
-});
+
 
 app.use((err,req,res,next)=>{
     const statusCode=err.statusCode || 500;
