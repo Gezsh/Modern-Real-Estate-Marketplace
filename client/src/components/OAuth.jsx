@@ -26,7 +26,7 @@ function OAuth() {
             console.log("auth",auth)
             const result =await signInWithPopup(auth,provider)
             console.log("result",result) 
-                        axios.post('/api/auth/google',{username:result.user.displayName,email:result.user.email,photo:result.user.photoURL}) 
+                        axios.post('/api/auth/google',{username:result.user.displayName,email:result.user.email,photo:result.user.photoURL},{withCredentials:true}) 
                      .then(response=> {
                       console.log('response :',response.data),
                       navigate('/'),

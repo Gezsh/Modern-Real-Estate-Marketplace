@@ -10,14 +10,14 @@ require('dotenv').config()
 const app=express();
 
 // const __dirname=path.resolve();
-// const corsOptions = {
-//     origin: 'https://realestatesgezsh.netlify.app',
-//     credentials: true, // Enable credentials (cookies)
-//   };
+const corsOptions = {
+    origin: 'https://realestatesgezsh.netlify.app',
+    credentials: true, // Enable credentials (cookies)
+  };
 
 const cors=require('cors')
 app.use(express.json())
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser())
 app.use("/api/user",userRouter)
 app.use("/api/auth",authRouter)
