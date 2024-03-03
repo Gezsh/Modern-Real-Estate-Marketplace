@@ -23,6 +23,14 @@ padding:10px;
  max-width:32rem;
  margin-left:auto;
  margin-right:auto;
+
+ @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
+  width:100% !important;
+  justify-content:space-around;
+   
+ 
+  
+}
 `
 
 const Title =style.h1`

@@ -7,8 +7,13 @@ import { useEffect, useState } from 'react';
 const HeaderContainer=style.div`
    background-color: #e2e8f0;
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-   
 
+   @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
+    width: 100%; 
+ 
+
+  }
+  
 `
 
 const Wrapper =style.div `
@@ -19,13 +24,26 @@ const Wrapper =style.div `
   margin-left:auto;
   margin-right:auto;
   padding:0.75rem;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
+    justify-content:space-around;
+    gap:15px;
+    margin-left:0;
+    margin-right:0;
+    width:100%;
+  }
+ 
 `
 const Logo=style.div`
   display:flex;
   flex-wrap:wrap;
   font-weight:bold;
   font-size:1.4rem;
-  
+  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
+   display:none;
+    // flex-direction:column;
+    // font-size:1.2rem;
+   
+  }
   
 `
 const Form=style.form`
@@ -35,6 +53,11 @@ const Form=style.form`
   display:flex;
   align-items:center;
 
+  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
+    margin-left:0;
+  
+  }
+
 `
 const Search=style.input`
   background:transparent;
@@ -43,14 +66,22 @@ const Search=style.input`
   &:focus {
     outline:none;
   }
-  @media (min-width: 640px) {
+ 
+  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
     width:16rem;
+    font-size:1.2rem;
+  
   }
+
 `
 
 const ListContainer=style.ul`
   display:flex;
   gap:1rem;
+  @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
+   gap:0.5rem;
+   font-size:1.2rem;
+  }
  
 `
 const List =style.li`
@@ -58,6 +89,9 @@ color:#334155;
 &:hover{
   text-decoration:underline;
 }
+
+
+
 `
 const ProfileImg=style.img`
 border-radius:50%;

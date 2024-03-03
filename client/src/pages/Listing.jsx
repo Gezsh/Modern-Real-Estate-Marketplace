@@ -16,7 +16,15 @@ import {useSelector} from 'react-redux'
 import Contact from "../components/Contact"
 
 const Main =style.div`
-   
+    
+@media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
+  width:100%;
+  justify-content:flex-start;
+  padding:10px;
+  margin-left:5px;
+  margin-right:5px;
+}  
+
 `
 
 const Listing = () => {
