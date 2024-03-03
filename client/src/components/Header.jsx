@@ -9,9 +9,9 @@ const HeaderContainer=style.div`
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
    @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
-    width: 100%; 
- 
-
+    width: 70%; 
+   
+   overflow-x:hidden;
   }
   
 `
@@ -25,11 +25,12 @@ const Wrapper =style.div `
   margin-right:auto;
   padding:0.75rem;
   @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
-    justify-content:space-around;
+    justify-content:flex-start;
     gap:15px;
     margin-left:0;
     margin-right:0;
     width:100%;
+    
   }
  
 `
@@ -55,7 +56,7 @@ const Form=style.form`
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
     margin-left:0;
-  
+   
   }
 
 `
@@ -70,7 +71,7 @@ const Search=style.input`
   @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
     width:16rem;
     font-size:1.2rem;
-  
+    width:100px;
   }
 
 `

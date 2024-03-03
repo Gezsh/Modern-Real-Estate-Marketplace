@@ -4,11 +4,14 @@
 
 body{
     background-color:rgb(241,245,241);
+   
     @media only screen and (min-device-width: 320px) and (max-device-width: 640px) and (-webkit-device-pixel-ratio: 2) {
-        
-    overflow-x: hidden;}
+       overflow-x:hidden;
+     
+      }
 }
 
 #root{
+
   
 }

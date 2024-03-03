@@ -10,7 +10,10 @@ require('dotenv').config()
 const app=express();
 
 // const __dirname=path.resolve();
-
+// const corsOptions = {
+//     origin: 'https://realestatesgezsh.netlify.app',
+//     credentials: true, // Enable credentials (cookies)
+//   };
 
 const cors=require('cors')
 app.use(express.json())

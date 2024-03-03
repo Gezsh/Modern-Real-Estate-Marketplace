@@ -64,7 +64,7 @@ const Login = () => {
       e.preventDefault();
         
         dispatch(signInStart())
-         axios.post('/api/auth/signin',{email,password})
+         axios.post('/api/auth/signin',{email,password},{withCredentials:true})
                       .then(response=>{
                       //  console.log(response.data);
                       //  setError('');

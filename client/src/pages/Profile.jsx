@@ -147,7 +147,7 @@ const Profile = () => {
   const handleDelete=(e)=>{
     e.preventDefault()
      dispatch(deleteUserStart())
-    axios.delete(`/api/user/delete/${currentUser?._id}`)
+    axios.delete(`/api/user/delete/${currentUser?._id}`,{withCredentials:true})
                 .then(response=>{
 
                   console.log('delete response',response.data)
@@ -163,7 +163,7 @@ const Profile = () => {
   const handleSignOut=(e)=>{
     e.preventDefault()
     dispatch(signOutUserStart())
-      axios.get('/api/auth/signOut')
+      axios.get('/api/auth/signOut',{withCredentials:true})
              .then(response=>{
                  console.log(response.log),
                  dispatch(signOutUserSuccess(response.data))
@@ -182,7 +182,7 @@ const Profile = () => {
        e.preventDefault()
     
        dispatch(updateUserStart());
-       axios.patch(`/api/user/update/${currentUser._id}`,formData)
+       axios.patch(`/api/user/update/${currentUser._id}`,formData,{withCredentials:true})
                   .then(response=>{
                       
                       
@@ -201,7 +201,7 @@ const Profile = () => {
   const handleShowClick=async()=>{
        try{
         setShowListingError(false)
-      axios.get(`/api/user/listing/${currentUser?._id}`)
+      axios.get(`/api/user/listing/${currentUser?._id}`,{withCredentials:true})
          .then(response=>{
          
           
@@ -217,7 +217,7 @@ const Profile = () => {
 
   const handleDeleteListing=async(listingId)=>{
        try{
-              axios.delete(`/api/listing/delete/${listingId}`)
+              axios.delete(`/api/listing/delete/${listingId}`,{withCredentials:true})
                           .then(response=>{
                               console.log(response.data)
                              setUserListing ((prev)=>prev.filter((listing)=>listing._id !== listingId))
