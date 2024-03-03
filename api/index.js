@@ -10,11 +10,17 @@ require('dotenv').config()
 const app=express();
 
 // const __dirname=path.resolve();
-// const corsOptions = {
-//     credentials:true,
-//     origin: 'https://realestatesgezsh.netlify.app',
-//     credentials: true, // Enable credentials (cookies)
-//   };
+const corsOptions = {
+    credentials:true,
+    origin: 'https://realestatesgezsh.netlify.app',
+    credentials: true, // Enable credentials (cookies)
+  };
+
+
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+  });
 
 const cors=require('cors')
 app.use(express.json())
@@ -22,7 +28,8 @@ app.use(express.json())
 mongoose.connect(process.env.MONGO_URL).then(()=>console.log("connected to database")).catch((err)=>console.log(err));
 
 
-app.use(cors());
+
+app.use(cors(corsOptions));
 app.use(cookieParser())
 
 app.listen (3000,()=>{
