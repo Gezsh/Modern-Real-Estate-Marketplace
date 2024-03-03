@@ -28,7 +28,7 @@ const signin=async(req,res,next)=>{
         const token =jwt.sign({id:validUser._id}, process.env.JWT_SECRET )
         console.log(token)
       const {password:Pass, ...rest}=validUser._doc
-        res.cookie('access_token',token,{httpOnly:true,domain:'.realestatesgezsh.netlify.app'}).status(200).json({rest,token})
+        res.cookie('access_token',token,{httpOnly:true, domain: '.onrender.com'}).status(200).json({rest,token})
      } catch (error) {
         next(error);
      }
@@ -45,7 +45,7 @@ const google=async(req,res,next)=>{
       const token =jwt.sign({id:user._id},process.env.JWT_SECRET)
       console.log(token)
       const {password:Pass, ...rest}=user._doc
-        res.cookie('access_token',token,{httpOnly:true,domain:'.realestatesgezsh.netlify.app'}).status(200).json({rest,token})
+        res.cookie('access_token',token,{httpOnly:true, domain: '.onrender.com'}).status(200).json({rest,token})
         console.log(req.cookies.access_token);
     }else{
       
@@ -56,7 +56,7 @@ const google=async(req,res,next)=>{
         const token =jwt.sign({id:newUser},process.env.JWT_SECRET)
         console.log(token)
         const {password:Pass, ...rest}=newUser._doc
-          res.cookie('access_token',token,{httpOnly:true,domain:'.realestatesgezsh.netlify.app'}).status(200).json({rest,token})
+          res.cookie('access_token',token,{httpOnly:true, domain: '.onrender.com'}).status(200).json({rest,token})
           console.log(req.cookies.access_token);
           
     }
