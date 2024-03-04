@@ -27,14 +27,14 @@ const signin=async(req,res,next)=>{
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
     const { password: pass, ...rest } = validUser._doc;
     res
-      .cookie('access_token', token)
+      .cookie('access_token', token, { httpOnly: true ,domain:'.onrender.com'})
       .status(200)
       .json({rest,token});
   } catch (error) {
     next(error);
   }
 }
-
+//https://modern-real-estate-marketplace-1.onrender.com
 const google=async(req,res,next)=>{
 
   try{
