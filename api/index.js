@@ -10,11 +10,11 @@ require('dotenv').config()
 const app=express();
 const cors=require('cors')
 // const __dirname=path.resolve();
-// const corsOptions = {
-//     credentials:true,
-//     origin: 'https://realestatesgezsh.netlify.app',
-//     credentials: true, // Enable credentials (cookies)
-//   };
+const corsOptions = {
+    credentials:true,
+    origin: 'https://realestatesgezsh.netlify.app',
+    
+  };
 
 
 //   app.use((req, res, next) => {
@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGO_URL).then(()=>console.log("connected to datab
 
 
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser())
 
 app.listen (3000,()=>{

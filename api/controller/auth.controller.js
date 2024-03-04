@@ -44,13 +44,14 @@ const google=async(req,res,next)=>{
     if(user){
        
       const token =jwt.sign({id:user._id},process.env.JWT_SECRET)
-      console.log(token)
+      console.log("befor setting cookie token is", token)
+
       const {password:Pass, ...rest}=user._doc
        res
       .cookie('access_token', token, { httpOnly: true })
       .status(200)
       .json({rest,token});
-        console.log(req.cookies.access_token);
+        console.log('after setting token in cookie' , req.cookies.access_token);
     }else{
       
         const generatedPassword=Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
