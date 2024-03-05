@@ -83,6 +83,7 @@ const getListing=async(req,res,next)=>{
 }
 
 const getListingsForSearch=async(req,res,next)=>{
+  console.log('getlisting')
     try{
       const limit =parseInt(req.params.limit) || 9;
       const startIndex =parseInt(req.query.startIndex) || 0;
